@@ -82,3 +82,12 @@ function isSpainFun(arr) {
   });
 }
 console.log(isSpainFun(arrCities2));
+
+//Ejercicio 6
+
+function roundedResult(numFloat, decimales) {
+  console.log(Math.round(numFloat * Math.pow(10, decimales))/Math.pow(10, decimales));
+}
+
+roundedResult(2.123, 2);
+roundedResult(1.123456789, 6);
