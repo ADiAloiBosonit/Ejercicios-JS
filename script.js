@@ -36,20 +36,49 @@ const arrCities = [
   { city: "Jaén", country: "Spain", capital: false },
 ];
 
-// for (let i = 0; i < arrCities.length; i++) {
-//   if (arrCities[i].capital === false) {
-//     return 
-//   } 
-// }
-
 function isCapital(arr) {
   return arr.filter((boolCapital) => {
     for (let i = 0; i < arr.length; i++) {
       if (boolCapital.capital === false) {
         return boolCapital;
-      } 
+      }
     }
   });
 }
 
-console.log(isCapital(arrCities));
+// console.log(isCapital(arrCities));
+
+//Ejercicio 4
+
+const arrNumber1 = [1, 2, 3];
+const arrNumber2 = [1, 2, 3, 4, 5];
+const arrNumber3 = [1, 4, 7, 2];
+
+let newArr = arrNumber1.slice();
+newArr.push(arrNumber2);
+newArr.push(arrNumber3);
+
+// console.log(newArr);
+
+//Ejercicio 5
+
+const arrCities2 = [
+  { city: "Logroño", country: "Spain", capital: false },
+  { city: "Bordeaux", country: "France", capital: false },
+  { city: "Madrid", country: "Spain", capital: true },
+  { city: "Florence", country: "Italy", capital: true },
+  { city: "Oslo", country: "Norway", capital: true },
+  { city: "Jaén", country: "Spain", capital: false },
+];
+
+function isSpainFun(arr) {
+  return arr.map((city) => {
+    if (city.capital === false && city.country === "Spain") {
+      city.isSpain = true;
+      return city;
+    }
+    city.isSpain = false;
+    return city;
+  });
+}
+console.log(isSpainFun(arrCities2));
