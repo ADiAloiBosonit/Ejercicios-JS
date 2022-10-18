@@ -10,7 +10,8 @@ const arrNames = [
 
 let obj = arrNames[2];
 
-//console.log(obj);
+console.log("\nResultado ejercicio 1: ");
+console.log(obj);
 
 //Ejercicio 2
 
@@ -23,7 +24,9 @@ function valoresTruthy(arr) {
     }
   });
 }
-//console.log(valoresTruthy(arrDirty));
+
+console.log("\nResultado ejercicio 2: ");
+console.log(valoresTruthy(arrDirty));
 
 //Ejercicio 3
 
@@ -46,7 +49,8 @@ function isCapital(arr) {
   });
 }
 
-// console.log(isCapital(arrCities));
+console.log("\nResultado ejercicio 3: ");
+console.log(isCapital(arrCities));
 
 //Ejercicio 4
 
@@ -58,7 +62,8 @@ let newArr = arrNumber1.slice();
 newArr.push(arrNumber2);
 newArr.push(arrNumber3);
 
-// console.log(newArr);
+console.log("\nResultado ejercicio 4: ");
+console.log(newArr);
 
 //Ejercicio 5
 
@@ -76,18 +81,46 @@ function isSpainFun(arr) {
     if (city.capital === false && city.country === "Spain") {
       city.isSpain = true;
       return city;
+    } else if (city.capital === true && city.country === "Spain") {
+      city.isSpain = true;
+      return city;
+    } else {
+      city.isSpain = false;
+      return city;
     }
-    city.isSpain = false;
-    return city;
   });
 }
+console.log("\nResultado ejercicio 5: ");
+
 console.log(isSpainFun(arrCities2));
 
 //Ejercicio 6
 
 function roundedResult(numFloat, decimales) {
-  console.log(Math.round(numFloat * Math.pow(10, decimales))/Math.pow(10, decimales));
+  console.log(
+    Math.round(numFloat * Math.pow(10, decimales)) / Math.pow(10, decimales)
+  );
 }
-
+console.log("\nResultado ejercicio 6: ");
 roundedResult(2.123, 2);
 roundedResult(1.123456789, 6);
+
+//Ejercicio 7
+
+function returnFalsyValues(objA, x) {
+  return Object.keys(objA).reduce((value, key) => {
+    if (!x(objA[key])) {
+      value[key] = objA[key];
+      return value;
+    } 
+    return value;
+  }, {});
+}
+
+const result = returnFalsyValues(
+  { a: 1, b: "2", c: 3, d: "4" },
+  (x) => typeof x === "string"
+);
+
+console.log("\nResultado ejercicio 7: ");
+console.log(result);
