@@ -8,10 +8,10 @@ const arrNames = [
   { id: 5, name: "Lala" },
 ];
 
-let obj = arrNames[2];
+var arrResult = arrNames.find((o) => o.id == 3);
 
 console.log("\nResultado ejercicio 1: ");
-console.log(obj);
+console.log(arrResult);
 
 //Ejercicio 2
 
@@ -112,7 +112,7 @@ function returnFalsyValues(objA, x) {
     if (!x(objA[key])) {
       value[key] = objA[key];
       return value;
-    } 
+    }
     return value;
   }, {});
 }
@@ -124,3 +124,55 @@ const result = returnFalsyValues(
 
 console.log("\nResultado ejercicio 7: ");
 console.log(result);
+
+//Ejercicio 8
+const data = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+const kb = 1000;
+
+function fromBytesToFormattedSizeUnits(nBytes, nDigits) {
+  let resPot = Math.floor(Math.log(nBytes) / Math.log(kb));
+  nBytes = nBytes / Math.pow(kb, resPot);
+
+  const size = data[resPot];
+  return nBytes.toPrecision(nDigits) + size;
+}
+
+const resultBytes = fromBytesToFormattedSizeUnits(1000);
+
+console.log("\nResultado ejercicio 8: ");
+console.log(resultBytes); // 1KB
+
+//Ejercicio 9
+const myObject = { NamE: "Charles", ADDress: "Home Street" };
+
+function myObjLowercase(objInput) {
+  return Object.keys(objInput).reduce((value, key) => {
+    value[key.toLowerCase()] = objInput[key];
+    return value;
+  }, {});
+}
+
+console.log("\nResultado ejercicio 9: ");
+console.log(myObjLowercase(myObject)); // { name: 'Charles', address: 'Home Street' }
+
+//Ejercicio 10
+
+function removeHTMLTags(str) {
+  return str.replace(/<\/?[^>]+>/g, "");
+}
+
+console.log("\nResultado ejercicio 10: ");
+console.log(
+  removeHTMLTags("<div><span>lorem</span><strong>ipsum</strong></div>")
+);
+
+//Ejercicio 11
+
+function splitArrayIntoChunks(arr, arrElements) {
+  return arr.splice((a) => {
+    return arr = a[arrElements];
+  });
+}
+
+console.log("\nResultado ejercicio 11: ");
+console.log(splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3));
