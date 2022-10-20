@@ -92,7 +92,7 @@ function isSpainFun(arr) {
 }
 console.log("\nResultado ejercicio 5: ");
 
-console.log(isSpainFun(arrCities2));
+console.table(isSpainFun(arrCities2));
 
 //Ejercicio 6
 
@@ -129,11 +129,14 @@ console.log(result);
 const data = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 const kb = 1000;
 
-function fromBytesToFormattedSizeUnits(nBytes, nDigits) {
-  let resPot = Math.floor(Math.log(nBytes) / Math.log(kb));
-  nBytes = nBytes / Math.pow(kb, resPot);
+/*Ejemplo con parametro 1000 bytes ->
+Math.log = base 10 elevado a n numero de 0 de bytes*/
 
-  const size = data[resPot];
+function fromBytesToFormattedSizeUnits(nBytes, nDigits) {
+  let resPot = Math.floor(Math.log(nBytes) / Math.log(kb)); // resultado potencia = 3/3 = 1 byte
+  nBytes = nBytes / Math.pow(kb, resPot); //bytes = 1000 / (1000*1)
+
+  const size = data[resPot]; //Resultado potencia = 1 -> posicion 1 [kb]
   return nBytes.toPrecision(nDigits) + size;
 }
 
