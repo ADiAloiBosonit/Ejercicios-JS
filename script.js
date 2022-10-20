@@ -169,10 +169,11 @@ console.log(
 //Ejercicio 11
 
 function splitArrayIntoChunks(arr, arrElements) {
-  return arr.splice((a) => {
-    return arr = a[arrElements];
-  });
+  for (let i = 0; arr.length > 0; i++) {
+    newArr = arr.splice(0, arrElements);
+    console.log(newArr);
+  }
 }
 
 console.log("\nResultado ejercicio 11: ");
-console.log(splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3));
+splitArrayIntoChunks([1, 2, 3, 4, 5, 6, 7], 3);
